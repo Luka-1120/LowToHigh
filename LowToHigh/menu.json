@@ -1,0 +1,74 @@
+[
+    {
+        "name": "Spaghetti Carbonara",
+        "desc": "Classic Roman pasta with creamy egg sauce, crispy pancetta, and pecorino cheese.",
+        "price": 12,
+        "img": "images/creamy-fettuccine-carbonara-105940-1.jpeg"
+    },
+    {
+        "name": "Margherita Pizza",
+        "desc": "Traditional pizza with fresh tomato, mozzarella, and basil.",
+        "price": 10,
+        "img": "images/domcherry-1639-1.jpg"
+    },
+    {
+        "name": "Risotto alla Milanese",
+        "desc": "Creamy saffron-infused risotto from Milan.",
+        "price": 13,
+        "img": "images/SD_RisottoMilanese.jpeg"
+    },
+    {
+        "name": "Lasagna",
+        "desc": "Layers of fresh pasta, slow-cooked beef ragu, béchamel sauce, and mozzarella.",
+        "price": 14,
+        "img": "images/Turkey-Spinach-Lasagna-17.jpg"
+    },
+    {
+        "name": "Osso Buco",
+        "desc": "Braised veal shanks in a rich tomato and wine sauce.",
+        "price": 18,
+        "img": "images/Red-Deer-Osso-Buco-01_2-56a604613df78cf7728aeb60.jpg"
+    },
+    {
+        "name": "Caprese Salad",
+        "desc": "Fresh mozzarella, ripe tomatoes, and basil drizzled with olive oil.",
+        "price": 9,
+        "img": "images/Recipe-Classic-Italian-Caprese-Salad.jpg"
+    },
+    {
+        "name": "Pesto Pasta",
+        "desc": "Pasta tossed in fresh basil pesto and parmesan cheese.",
+        "price": 20,
+        "img": "images/Pesto-Pasta-Recipe-foodiecrush.com-002.jpg"
+    },
+    {
+        "name": "Bistecca Fiorentina",
+        "desc": "Tuscan T-bone steak grilled to perfection.",
+        "price": 25,
+        "img": "images/JZ7LL4G3YX6AUSEVIUNLIDP3EE_bistecca_fiorentina_4x5.webp"
+    },
+    {
+        "name": "Arancini",
+        "desc": "Fried risotto balls stuffed with cheese and meat.",
+        "price": 7,
+        "img": "images/rancini-fried-rice-balls-arancini-italian-cuisine-32571570.webp"
+    },
+    {
+        "name": "Tiramisu",
+        "desc": "Classic Italian dessert with mascarpone and coffee.",
+        "price": 6,
+        "img": "images/tiramisu1-ezgif.com-jpg-to-webp-converter-1-1.webp"
+    },
+    {
+        "name": "Gelato",
+        "desc": "Authentic Italian ice cream in various flavors.",
+        "price": 5,
+        "img": "images/1689616126418-scaled-1.jpg"
+    },
+    {
+        "name": "Bruschetta",
+        "desc": "Grilled bread with garlic, tomatoes, and olive oil.",
+        "price": 6,
+        "img": "images/2014_Bruschetta_The_Larder_Chiang_Mai.jpg"
+    }
+]

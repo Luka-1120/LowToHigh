@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Basket - LowToHigh</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { padding-top: 80px; font-family: Arial, sans-serif; }
+        .dish-img { width: 100px; height: 80px; object-fit: cover; border-radius: 8px; }
+        .quantity-btn { width: 32px; }
+        .table td, .table th { vertical-align: middle; }
+        .remove-btn { color: white; }
+    </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="{{ url_for('home') }}">LowToHigh</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('home') }}">Home</a></li>
+        <li class="nav-item"><a class="nav-link active" href="{{ url_for('basket') }}">Basket</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('about') }}">About Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('contact') }}">Contact</a></li>
+        <li class="nav-item"><span class="nav-link">Hello {{ user_name }}</span></li>
+        <li class="nav-item"><a class="nav-link btn btn-sm btn-outline-light ms-2" href="{{ url_for('logout') }}">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+    <h2 class="mb-4">🛒 Your Basket</h2>
+
+    {% if basket_items %}
+    <table class="table table-hover align-middle text-center">
+        <thead class="table-dark">
+            <tr>
+                <th>#</th>
+                <th>Dish</th>
+                <th>Image</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Subtotal</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in basket_items %}
+            <tr>
+                <th>{{ loop.index }}</th>
+                <td>{{ item.name }}</td>
+                <td><img src="{{ url_for('static', filename=item.img) }}" class="dish-img"></td>
+                <td>${{ item.price }}</td>
+                <td>
+                    <form action="{{ url_for('update_basket', item_name=item.name, action='decrease') }}" method="post" style="display:inline;">
+                        <button class="btn btn-sm btn-outline-secondary quantity-btn">-</button>
+                    </form>
+                    {{ item.quantity }}
+                    <form action="{{ url_for('update_basket', item_name=item.name, action='increase') }}" method="post" style="display:inline;">
+                        <button class="btn btn-sm btn-outline-secondary quantity-btn">+</button>
+                    </form>
+                </td>
+                <td>${{ item.price * item.quantity }}</td>
+                <td>
+                    <form action="{{ url_for('update_basket', item_name=item.name, action='remove') }}" method="post">
+                        <button class="btn btn-danger btn-sm remove-btn">Remove</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="d-flex justify-content-end">
+        <h4>Total: ${{ total }}</h4>
+    </div>
+
+    <div class="d-flex justify-content-end mt-3">
+        <a href="{{ url_for('home') }}" class="btn btn-success me-2">Continue Shopping</a>
+        <a href="{{ url_for('checkout') }}" class="btn btn-primary">Checkout</a>
+    </div>
+
+    {% else %}
+    <div class="alert alert-info text-center">
+        Your basket is empty. <a href="{{ url_for('home') }}">Start adding dishes!</a>
+    </div>
+    {% endif %}
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

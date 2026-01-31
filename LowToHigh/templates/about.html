@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>About Us | LowToHigh</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+</head>
+<body>
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="{{ url_for('home') }}">LowToHigh</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('home') }}">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('basket') }}">Basket</a></li>
+        <li class="nav-item"><a class="nav-link active" href="{{ url_for('about') }}">About Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('contact') }}">Contact</a></li>
+        <li class="nav-item"><span class="nav-link">Hello {{ user_name }}</span></li>
+        <li class="nav-item">
+            <a class="nav-link btn btn-sm btn-outline-light ms-2" href="{{ url_for('logout') }}">
+                Logout
+            </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<section class="container py-5 mt-5 fade-in-section">
+    <div class="text-center mb-5">
+        <h1>About LowToHigh</h1>
+        <p class="lead">
+            LowToHigh is a modern Italian restaurant where tradition meets innovation.
+            Our philosophy is simple: high-quality ingredients, passionate chefs,
+            and unforgettable dining experiences.
+        </p>
+    </div>
+</section>
+
+
+<section class="py-5 bg-light fade-in-section">
+    <div class="container">
+        <h2 class="text-center mb-5">👨‍🍳 Meet Our Chefs</h2>
+
+        <div class="row g-4">
+
+           
+            <div class="col-md-4">
+                <div class="card chef-card h-100 text-center">
+                    <img src="{{ url_for('static', filename='images/cardoz3.webp') }}"
+                         class="card-img-top chef-img"
+                         alt="Chef Marco Rossi">
+                    <div class="card-body">
+                        <h5 class="card-title">Marco Rossi</h5>
+                        <p class="card-text">
+                            Head Chef with over <strong>15 years of experience</strong> in Italian cuisine.
+                            Marco trained in Rome and Florence, mastering classic pasta dishes and
+                            modern fine-dining techniques. His passion lies in preserving tradition
+                            while adding a contemporary twist.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="col-md-4">
+                <div class="card chef-card h-100 text-center">
+                    <img src="{{ url_for('static', filename='images/DSC_1010.jpg') }}"
+                         class="card-img-top chef-img"
+                         alt="Chef Luca Bianchi">
+                    <div class="card-body">
+                        <h5 class="card-title">Luca Bianchi</h5>
+                        <p class="card-text">
+                            Pastry & Dessert Chef with <strong>10 years of professional experience</strong>.
+                            Luca specializes in Italian desserts such as tiramisu, panna cotta,
+                            and artisan gelato. He believes desserts should balance sweetness,
+                            texture, and elegance.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+           
+            <div class="col-md-4">
+                <div class="card chef-card h-100 text-center">
+                    <img src="{{ url_for('static', filename='images/654561.png') }}"
+                         class="card-img-top chef-img"
+                         alt="Chef Alessandro Conti">
+                    <div class="card-body">
+                        <h5 class="card-title">Alessandro Conti</h5>
+                        <p class="card-text">
+                            Sous Chef with <strong>8 years of experience</strong> in high-volume
+                            and fine-dining restaurants. Alessandro focuses on precision,
+                            teamwork, and delivering consistent quality in every dish served
+                            at LowToHigh.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<section class="container py-5 fade-in-section">
+    <div class="text-center">
+        <h2>Our Experience & Vision</h2>
+        <p class="mt-3">
+            Together, our chefs bring more than <strong>30 years of combined experience</strong>
+            in Italian gastronomy. From traditional recipes passed down through generations
+            to modern culinary innovations, LowToHigh stands for quality, creativity,
+            and passion in every plate.
+        </p>
+    </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const sections = document.querySelectorAll(".fade-in-section");
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting){
+                entry.target.classList.add("visible");
+            }
+        });
+    }, { threshold: 0.2 });
+
+    sections.forEach(section => observer.observe(section));
+});
+</script>
+
+</body>
+</html>

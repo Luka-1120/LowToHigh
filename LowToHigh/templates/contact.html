@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact Us | LowToHigh</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+</head>
+<body>
+
+<!-- ნავბარი -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="{{ url_for('home') }}">LowToHigh</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('home') }}">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('basket') }}">Basket</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('about') }}">About</a></li>
+        <li class="nav-item"><a class="nav-link active" href="{{ url_for('contact') }}">Contact</a></li>
+        <li class="nav-item"><span class="nav-link">Hello {{ user_name }}</span></li>
+        <li class="nav-item">
+            <a class="nav-link btn btn-sm btn-outline-light ms-2" href="{{ url_for('logout') }}">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- კონტაქტი -->
+<section class="container py-5 mt-5 fade-in-section">
+    <div class="text-center mb-5">
+        <h1>Contact Us</h1>
+        <p class="lead">
+            Have questions, reservations, or feedback?  
+            Feel free to call us or send a message using the form below.
+        </p>
+    </div>
+</section>
+
+<!-- Cინფორმაცია კონტაქტზე -->
+<section class="container pb-5 fade-in-section">
+    <div class="row g-4">
+
+        <!-- Cინფორმაცია კონტაქტზე -->
+        <div class="col-md-5">
+            <div class="card h-100 shadow-lg p-4">
+                <h4 class="mb-4">📍 Get in Touch</h4>
+
+                <p><strong>📞 Phone:</strong></p>
+                <a href="tel:+995599123456" class="btn btn-outline-dark mb-3 w-100">
+                    +995 599 12 34 56
+                </a>
+
+                <p><strong>📧 Email:</strong></p>
+                <a href="mailto:info@lowtohigh.com" class="btn btn-outline-dark mb-3 w-100">
+                    info@lowtohigh.com
+                </a>
+
+                <hr>
+
+                <p><strong>🕒 Working Hours:</strong></p>
+                <p>
+                    Monday – Sunday <br>
+                    11:00 AM – 11:00 PM
+                </p>
+
+                <p><strong>📍 Address:</strong></p>
+                <p>
+                    12 Rustaveli Avenue <br>
+                    Tbilisi, Georgia
+                </p>
+            </div>
+        </div>
+
+        <!-- CONTACT FORM -->
+        <div class="col-md-7">
+            <div class="card shadow-lg p-4">
+                <h4 class="mb-4">✉️ Send Us a Message</h4>
+
+                <form>
+                    <div class="mb-3">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" class="form-control" placeholder="Enter your name" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Email Address</label>
+                        <input type="email" class="form-control" placeholder="Enter your email" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Phone Number</label>
+                        <input type="tel" class="form-control" placeholder="Enter your phone number">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Message</label>
+                        <textarea class="form-control" rows="5" placeholder="Write your message here..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-dark w-100">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- ფეიდები -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const sections = document.querySelectorAll(".fade-in-section");
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting){
+                entry.target.classList.add("visible");
+            }
+        });
+    }, { threshold: 0.2 });
+
+    sections.forEach(section => observer.observe(section));
+});
+</script>
+
+</body>
+</html>
